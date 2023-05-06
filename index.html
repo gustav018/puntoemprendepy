@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto de Equilibrio y Análisis de Sensibilidad</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet">
+  
+  </head>
+  <body>
+    <div class="container my-5">
+      <h1 class="text-center mb-4">Punto de Equilibrio y Análisis de
+        Sensibilidad</h1>
+      <form id="formularioPuntoEquilibrio" class="bg-white p-4 border rounded">
+        <div class="form-group">
+          <label for="costosFijos">Costos fijos:</label>
+          <input type="number" id="costosFijos" min="1" name="costosFijos"
+            min="0" step="any" class="form-control" required>
+        </div>
+
+        <div class="form-row">
+          <div class="col">
+            <label for="nombreProducto">Nombre del producto:</label>
+            <input type="text" id="nombreProducto" min="1" name="nombreProducto"
+              class="form-control" required>
+          </div>
+          <div class="col">
+            <label for="precioVenta">Precio de venta:</label>
+            <input type="number" id="precioVenta" min="1" name="precioVenta"
+              min="0" step="any" class="form-control" required>
+          </div>
+          <div class="col">
+            <label for="precioCosto">Precio de costo:</label>
+            <input type="number" id="precioCosto" min="1" name="precioCosto"
+              min="0" step="any" class="form-control" required>
+          </div>
+          <div class="col">
+            <label for="demandaMensual">Demanda mensual (Q):</label>
+            <input type="number" id="demandaMensual" min="1"
+              name="demandaMensual" min="0" step="any" class="form-control"
+              required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 mt-3">Agregar
+          producto</button>
+      </form>
+
+      <h2 class="text-center my-4" id="tituloPuntoEquilibrio">Punto de
+        Equilibrio Multiproductos</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio de Venta</th>
+            <th>Costo Variable</th>
+            <th>Demanda Mensual</th>
+            <th>Costo Variable Ponderado</th>
+            <th>Precio de Venta Ponderado</th>
+            <th>Punto de Equilibrio</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaDatos">
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row">Total</th>
+            <th scope="row" colspan="2"></th>
+            <th scope="row" id="totalDemandaMensual"></th>
+            <th scope="row" id="totalCostoVariablePonderado"></th>
+            <th scope="row" id="totalPrecioVentaPonderado"></th>
+
+            <th scope="row" id="totalPuntoDeEquilibrio"></th>
+            <th scope="row"></th>
+          </tr>
+        </tfoot>
+      </table>
+      <h2 class="text-center my-4" id="tituloProyeccionVentas">Proyección de
+        Ventas</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Escenario</th>
+            <th>Q (Cantidad)</th>
+            <th>Ingreso</th>
+            <th>Costo Variable</th>
+            <th>Costo Fijo</th>
+            <th>Costo Total</th>
+            <th>Utilidad</th>
+          </tr>
+        </thead>
+        <tbody id="tablaProyeccion">
+        </tbody>
+      </table>
+      <div id="contenedorExplicacion"></div>
+      <div class="mt-4">
+        <canvas id="grafico"></canvas>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
